@@ -20,8 +20,8 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td><input type="number" class="form-control" name="inicio"></td>
-				<td><input type="number" class="form-control" name="fim"></td>
+				<td><input type="text" class="form-control" name="inicio"></td>
+				<td><input type="text" class="form-control" name="fim"></td>
 				<td><button class="btn btn-primary" id="bt-gerar">Gerar</button></td>
 			</tr>
 		</table>
@@ -31,15 +31,17 @@
 
 <script>
 $( function () {
-	$( '#bt-gerar' ).on( 'click', function () {
-		inicio = $( 'input[name="inicio"]' ).val();
-		fim = $( 'input[name="fim"]' ).val();
+	function gerar() {
+		inicio = parseInt( $( 'input[name="inicio"]' ).val() );
+		fim = parseInt( $( 'input[name="fim"]' ).val() );
 		numeros = '';
 		for( i = inicio; i <= fim; i++ ) {
 			numeros += i+"\n";
 		}
 		$( 'textarea[name="incremented"]' ).val( numeros );
-	} );
+	}
+
+	$( '#bt-gerar' ).on( 'click', gerar );
 } );
 </script>
 </body>
